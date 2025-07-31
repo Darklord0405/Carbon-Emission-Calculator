@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Carbon Calculator</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Use the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom focus ring color */
+        input:focus {
+            --tw-ring-color: #2563eb; /* A nice blue color */
+        }
+        /* Simple transition for the form switch */
+        .form-container {
+            display: none;
+        }
+        .form-container.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-md">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-slate-900">Project Carbon Calculator 🏗️</h1>
+            <p class="text-slate-600 mt-2">Sign in to manage your projects.</p>
+        </header>
+
+        <!-- Login Form -->
+        <div id="login-form-container" class="form-container active">
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-200">
+                <h2 class="text-2xl font-bold text-center text-slate-800 mb-6">Welcome Back!</h2>
+                <form id="login-form">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="login-email" class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+                            <input type="email" id="login-email" placeholder="you@example.com" required class="w-full p-3 border border-slate-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="login-password" class="block text-sm font-medium text-slate-700 mb-1">Password</label>
+                            <input type="password" id="login-password" placeholder="••••••••" required class="w-full p-3 border border-slate-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+                <p class="text-center text-sm text-slate-600 mt-6">
+                    Don't have an account? 
+                    <button id="show-register" class="font-semibold text-blue-600 hover:text-blue-700">Sign up</button>
+                </p>
+            </div>
+        </div>
+
+        <!-- Registration Form -->
+        <div id="register-form-container" class="form-container">
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-200">
+                <h2 class="text-2xl font-bold text-center text-slate-800 mb-6">Create an Account</h2>
+                <form id="register-form">
+                    <div class="space-y-4">
+                         <div>
+                            <label for="register-name" class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+                            <input type="text" id="register-name" placeholder="John Doe" required class="w-full p-3 border border-slate-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="register-email" class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+                            <input type="email" id="register-email" placeholder="you@example.com" required class="w-full p-3 border border-slate-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="register-password" class="block text-sm font-medium text-slate-700 mb-1">Password</label>
+                            <input type="password" id="register-password" placeholder="Minimum 8 characters" required class="w-full p-3 border border-slate-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                            Create Account
+                        </button>
+                    </div>
+                </form>
+                <p class="text-center text-sm text-slate-600 mt-6">
+                    Already have an account? 
+                    <button id="show-login" class="font-semibold text-blue-600 hover:text-blue-700">Sign in</button>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginContainer = document.getElementById('login-form-container');
+            const registerContainer = document.getElementById('register-form-container');
+            const showRegisterBtn = document.getElementById('show-register');
+            const showLoginBtn = document.getElementById('show-login');
+
+            // --- Form Switching Logic ---
+            showRegisterBtn.addEventListener('click', () => {
+                loginContainer.classList.remove('active');
+                registerContainer.classList.add('active');
+            });
+
+            showLoginBtn.addEventListener('click', () => {
+                registerContainer.classList.remove('active');
+                loginContainer.classList.add('active');
+            });
+
+            // --- Form Submission Logic (Placeholder) ---
+            // In a real application, this is where you would make an API call (fetch) to your backend server.
+            
+            const loginForm = document.getElementById('login-form');
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevent default form submission
+                alert('Login functionality requires a backend server.');
+                // Example of what an API call might look like:
+                // const email = document.getElementById('login-email').value;
+                // const password = document.getElementById('login-password').value;
+                // fetch('/api/login', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({ email, password })
+                // }).then(response => {
+                //     if (response.ok) window.location.href = '/calculator.html';
+                //     else alert('Login failed!');
+                // });
+            });
+
+            const registerForm = document.getElementById('register-form');
+            registerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Registration functionality requires a backend server.');
+            });
+        });
+    </script>
+
+</body>
+</html>
