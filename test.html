@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculaotr</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mainframe">
+        <div class="materials">
+            <label>Cemenet (Kg)</label>
+            <input type="number" id="cement" placeholder="enter Kg">
+            <label>Steel (Kg)</label>
+            <input type="number" id="steel" placeholder="enter Kg">
+            <label>Bricks (Kg)</label>
+            <input type="number" id="steel" placeholder="enter Kg">
+            <label>Glass (Kg)</label>
+            <input type="number" id="glass" placeholder="enter Kg">
+            <label>Wood (Kg)</label>
+            <input type="number" id="wood" placeholder="enter Kg">
+            <label>Building Area (m2)</label>
+            <input type="number" id="area" placeholder="enter sq mts">
+        </div>
+        
+        <div class="wiring">
+            <label>Type</label>
+            <select id="wire_type">
+                <option value="copper">Copper</option>
+                <option value="aluminium">Aluminium</option>
+            </select>
+            <label>Length (mts)</label>
+            <input type="number" id="wire_length" placeholder="enter mts">
+        </div>
+        <div class="plumbing">
+            <label>Type</label>
+            <select id="pipe_type">
+                <option value="copper">Copper</option>
+                <option value="pvc">PVC</option>
+            </select>
+            <label>Length (mts)</label>
+            <input type="number" id="pipe_length" placeholder="enter mts">
+        </div>
+
+        <div class="energy">
+            <label>Diesel (lt)</label>
+            <input type="number" id="diesel" placeholder="enter liters">
+            <label>Electricity (kwh)</label>
+            <input type="number" id="electricity" placeholder="enter kwh">
+        </div>
+
+        <button>Generate</button>
+    </div>
+</body>
+</html>
